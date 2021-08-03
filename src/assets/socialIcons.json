@@ -1,0 +1,9 @@
+[
+  { "service": "Twitter", "icon": "fa fa-twitter" },
+  { "service": "Facebook", "icon": "fa fa-facebook" },
+  { "service": "Soundcloud", "icon": "fa fa-soundcloud" },
+  { "service": "Youtube", "icon": "fa fa-youtube-play" },
+  { "service": "Instagram", "icon": "fa fa-instagram" },
+  { "service": "Apple Music", "icon": "fa fa-apple" },
+  { "service": "Spotify", "icon": "fa fa-spotify" }
+]

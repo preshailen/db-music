@@ -1,0 +1,83 @@
+/* Style Settings */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+
+#userPhoto {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 20%;
+}
+#userName {
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+#userName h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    margin: 0 auto;
+}
+#userName p {
+    font-weight: 300;
+    margin-top: 5px;
+    text-transform: none;
+}
+i.fa {
+    margin-right: 0.3rem;
+}
+
+#links {
+    max-width: 500px;
+    width: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.link {
+    display: block;
+    background-color: rgba(66, 110, 255, 0.2);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 17px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 300;
+    transition: all .25s cubic-bezier(.08, .59, .29, .99);
+    border-radius: 25px;
+}
+.link:hover {
+    background-color: #fff;
+    color: rgb(66, 110, 255);
+    border: solid rgb(66, 110, 255) 2px;
+}
+.footer {
+    text-align: center;
+    font-size: 1.3rem;
+    a {
+      text-decoration:none;
+    }
+}
+.circulo {
+  line-height: 38px !important;
+  filter: grayscale(100%);
+  background: rgb(221, 221, 221);
+  border-radius: 52px;
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  font-size: 10px;
+  color: rgb(32, 32, 32);
+}
+.circulo:hover {
+    background: rgb(66, 110, 255);
+    color: rgb(255, 255, 255);
+    -webkit-box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.77);
+    box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.77);
+}

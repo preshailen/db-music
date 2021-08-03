@@ -1,0 +1,81 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header"><b>Socials</b></div>
+        <div class="card-body table-responsive">
+          <table *ngIf="socials.length > 0; else elseBlock" class="table table-bordered table-striped table-sm table-hover">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Url</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let social of socials">
+                <td> {{ social.service }} </td>
+                <td> {{ social.handle }} </td>
+                <td><button class="btn btn-sm btn-ghost-primary" (click)="view(social.handle)"><i class="fa fa-eye"></i>&nbsp;View Profile</button></td>
+                <td><button class="btn btn-sm btn-ghost-danger" (click)="delete(social._id)"><i class="fa fa-minus-square"></i>&nbsp;Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #elseBlock><b>No Data Available!</b></ng-template>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-ghost-success" (click)="add(content)"><i class="fa fa-plus-square"></i>&nbsp;Add</button>
+          <ng-template #content let-modal>
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="far-right">
+                  <button type="button" class="close" aria-label="Close" (click)="close('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="centre">
+                  <h4 class="modal-title" id="modal-basic-title">New Social</h4>
+                </div>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="newSocialForm" *ngIf="newSocialForm" class="row">
+                  <div class="form col-md-12">
+                    <div class="form-group">
+                      <div class="single">
+                        <label for="service"><b>Service: </b></label>
+                        <input type="text" class="form-control" formControlName="service" id="service" minlength="4" required/>
+                      </div>
+                      <div *ngIf="n.service.errors?.minlength && (n.service.touched || n.service.dirty)" class="messages text-danger">Invalid Length!</div>
+                      <div *ngIf="n.service.errors?.required && (n.service.touched || n.service.dirty)" class="messages text-danger">Required!</div>
+                    </div>
+                    <div class="form-group">
+                      <div class="single">
+                        <label for="handle"><b>Url: </b></label>
+                        <input type="text" class="form-control" formControlName="handle" id="handle" minlength="4" required/>
+                      </div>
+                      <div *ngIf="n.handle.errors?.minlength && (n.handle.touched || n.handle.dirty)" class="messages text-danger">Invalid Length!</div>
+                      <div *ngIf="n.handle.errors?.required && (n.handle.touched || n.handle.dirty)" class="messages text-danger">Required!</div>
+                    </div>
+                    <div class="form-group">
+                      <div class="single">
+                        <label for="icon"><b>Icon: </b></label>
+                        <select class="form-control" formControlName="icon" id="icon" required>
+                          <option *ngFor="let icon of iconList" [ngValue]="icon.icon">{{ icon.service }}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="n.icon.errors?.required && (n.icon.touched || n.icon.dirty)" class="messages text-danger">Required!</div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-ghost-success" (click)="create()"><i class="fa fa-plus-square"></i>&nbsp;Add</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

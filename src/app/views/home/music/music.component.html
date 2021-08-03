@@ -1,0 +1,21 @@
+<div id="profile">
+  <img id="userPhoto" src="../../../../assets/img/profile.png" alt="Profile picture of Luã Braga">
+  <div id="userName">
+    <h1>Luã Braga</h1>
+    <p>Software Engineer</p>
+  </div>
+</div>
+<div id="links">
+  <a class="link" href="https://github.com/lmourabraga" target="_blank"><i class="fa fa-eye"></i> View Individual Songs</a>
+  <br>
+  <a class="link" href="https://www.linkedin.com/in/lmourabraga/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
+  <a class="link" href="http://lmourabraga.com" target="_blank"><i class="fa fa-globe"></i>Website</a>
+  <a class="link" href="mailto:mail@lmourabraga.com" target="_blank"><i class="fa fa-envelope"></i>E-mail</a>
+  <a class="link" href="https://web.whatsapp.com/send?phone=5591981380045" target="_blank"><i class="fa fa-whatsapp"></i>WhatsApp</a>
+  <a class="link" href="https://guilhermesoares.tech" target="_blank"><i class="fa fa-globe"></i> Meu site</a>
+  <a class="link" href="https://github.com/guiscota" target="_blank"><i class="fa fa-github"></i> Github</a>
+  <a class="link" href="https://looptech.com.br" target="_blank"><i class="fa fa-globe"></i> Loop Tech</a>
+</div>
+<div class="footer">
+  <a *ngFor="let social of socials" href="{{social.handle}}" target="_blank" aria-hidden="true"><i class="{{social.icon}} circulo"></i></a>
+</div>

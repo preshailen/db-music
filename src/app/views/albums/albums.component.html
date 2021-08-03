@@ -1,0 +1,102 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header"><b>Albums</b></div>
+        <div class="card-body table-responsive">
+          <table *ngIf="albums.length > 0; else elseBlock" class="table table-bordered table-striped table-sm table-hover">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Date Released</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let album of albums">
+                <td> {{ album.title }} </td>
+                <td> {{ gService.formatDate(album.releaseDate) }} </td>
+                <td>
+                  <button class="btn btn-sm btn-ghost-primary" (click)="view(album.logo, viewContent)"><i class="fa fa-eye"></i>&nbsp;View Cover</button>
+                  <ng-template #viewContent let-modal>
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <div class="far-right">
+                          <button type="button" class="close" aria-label="Close" (click)="closeView('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="centre">
+                          <h4 class="modal-title" id="modal-basic-title">Cover</h4>
+                        </div>
+                      </div>
+                      <div class="modal-body">
+                        <img [src]="viewImage" *ngIf="viewImage"/>
+                      </div>
+                    </div>
+                  </ng-template>
+                </td>
+                <td><button class="btn btn-sm btn-ghost-danger" (click)="delete(album._id)"><i class="fa fa-minus-square"></i>&nbsp;Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #elseBlock><b>No Data Available!</b></ng-template>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-ghost-success" (click)="add(content)"><i class="fa fa-plus-square"></i>&nbsp;Add</button>
+          <ng-template #content let-modal>
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="far-right">
+                  <button type="button" class="close" aria-label="Close" (click)="close('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="centre">
+                  <h4 class="modal-title" id="modal-basic-title">New Album</h4>
+                </div>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="newAlbumForm" *ngIf="newAlbumForm" class="row">
+                  <div class="form col-md-12">
+                    <div class="form-group">
+                      <div class="single">
+                        <label for="title"><b>Title: </b></label>
+                        <input type="text" class="form-control" formControlName="title" id="title" minlength="4" required/>
+                      </div>
+                      <div *ngIf="n.title.errors?.minlength && (n.title.touched || n.title.dirty)" class="messages text-danger">Invalid Length!</div>
+                      <div *ngIf="n.title.errors?.required && (n.title.touched || n.title.dirty)" class="messages text-danger">Required!</div>
+                    </div>
+                    <div class="form-group">
+                      <div class="single">
+                        <label for="releaseDate"><b>Release Date: </b></label>
+                        <input type="date" class="form-control" formControlName="releaseDate" id="releaseDate" required/>
+                      </div>
+                      <div *ngIf="n.releaseDate.errors?.required && (n.releaseDate.touched || n.releaseDate.dirty)" class="messages text-danger">Required!</div>
+                    </div>
+                    <div class="form-group">
+                      <div class="single">
+                        <label for="logo"><b>Logo: </b></label>
+                        <div class="image-holder" *ngIf="imageSource">
+                          <img [src]="imageSource" alt="Image Source" id="logo">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="file" id="file" (change)="handleFile($event)" accept=".png" hidden/>
+                      <button type="button" class="btn btn-ghost-primary" (click)="change()"><i class="fa fa-exchange"></i>&nbsp;Change</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-ghost-success" (click)="create()"><i class="fa fa-plus-square"></i>&nbsp;Add</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

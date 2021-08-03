@@ -1,0 +1,49 @@
+.card, .center {
+  text-align: center;
+}
+.top-fix {
+  margin-bottom: 24px;
+}
+.modal-content {
+  text-align: center;
+  .modal-header {
+    display: block;
+    .far-right {
+      overflow: hidden;
+      button {
+        float: right;
+      }
+    }
+    .centre {
+      display: flex;
+      #modal-basic-title {
+        margin: 0 auto;
+      }
+    }
+  }
+  .modal-body {
+    form {
+      padding-top: 0.75rem;
+      .single {
+        display: flex;
+        label {
+          white-space: pre;
+          margin-top: 0.5rem;
+          margin-right: 0.5rem;
+        }
+        input, select {
+          width: 100%;
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }
+  .modal-footer {
+    display: flex;
+    padding: 1rem;
+    button {
+      margin: 0 auto;
+    }
+  }
+}
