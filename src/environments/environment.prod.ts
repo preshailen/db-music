@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://obscure-falls-43536.herokuapp.com/'
+  baseUrl: 'https://db-music-backend.herokuapp.com/'
 };
