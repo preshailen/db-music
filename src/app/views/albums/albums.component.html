@@ -11,6 +11,7 @@
                 <th>Date Released</th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -33,6 +34,82 @@
                       </div>
                       <div class="modal-body">
                         <img [src]="viewImage" *ngIf="viewImage"/>
+                      </div>
+                    </div>
+                  </ng-template>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-ghost-warning" (click)="editLinks(album._id, linksContent)"><i class="fa fa-random"></i>&nbsp;Manage Links</button>
+                  <ng-template #linksContent let-modal>
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <div class="far-right">
+                          <button type="button" class="close" aria-label="Close" (click)="closeLinks('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="centre">
+                          <h4 class="modal-title" id="modal-basic-title">Links</h4>
+                        </div>
+                      </div>
+                      <div class="modal-body table-responsive">
+                        <table *ngIf="links.length > 0; else elseBlock" class="table table-bordered table-striped table-sm table-hover">
+                          <thead>
+                            <th>Service</th>
+                            <th>Url</th>
+                            <th></th>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let link of links">
+                              <td>{{ getService(link.dsp) }}</td>
+                              <td>{{ link.url }}</td>
+                              <td><button class="btn btn-sm btn-ghost-danger" (click)="deleteLink(link._id)"><i class="fa fa-minus-square"></i>&nbsp;Delete</button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <ng-template #elseBlock><b>No Data Available!</b></ng-template>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-ghost-success" (click)="addLink(addContent)"><i class="fa fa-plus-square"></i>&nbsp;Add</button>
+                        <ng-template #addContent let-modal>
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <div class="far-right">
+                                <button type="button" class="close" aria-label="Close" (click)="closeAdd('Cross click')">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="centre">
+                                <h4 class="modal-title" id="modal-basic-title">New Link</h4>
+                              </div>
+                            </div>
+                            <div class="modal-body">
+                              <form [formGroup]="newLinkForm" *ngIf="newLinkForm" class="row">
+                                <div class="form col-md-12">
+                                  <div class="form-group">
+                                    <div class="single">
+                                      <label for="dsp"><b>Dsp: </b></label>
+                                      <select class="form-control" formControlName="dsp" id="dsp" required>
+                                        <option *ngFor="let dsp of dsps" [ngValue]="dsp._id">{{ dsp.service }}</option>
+                                      </select>
+                                    </div>
+                                    <div *ngIf="l.dsp.errors?.required && (l.dsp.touched || l.dsp.dirty)" class="messages text-danger">Required!</div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="single">
+                                      <label for="url"><b>Url: </b></label>
+                                      <input type="text" class="form-control" formControlName="url" id="url" required/>
+                                    </div>
+                                    <div *ngIf="l.url.errors?.required && (l.url.touched || l.url.dirty)" class="messages text-danger">Required!</div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-ghost-success" (click)="createLink()"><i class="fa fa-plus-square"></i>&nbsp;Add</button>
+                            </div>
+                          </div>
+                        </ng-template>
                       </div>
                     </div>
                   </ng-template>

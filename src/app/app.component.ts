@@ -11,11 +11,7 @@ import { freeSet } from '@coreui/icons';
   providers: [IconSetService],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private router: Router,
-    public iconSet: IconSetService
-  ) {
-    // iconSet singleton
+  constructor(private router: Router, public iconSet: IconSetService) {
     iconSet.icons = { ...freeSet };
   }
 

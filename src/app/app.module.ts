@@ -20,8 +20,7 @@ import { AppComponent } from './app.component';
 // Import containers
 import { DefaultLayoutComponent } from './containers';
 
-import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
+import { LoginComponent } from './views/auth/login/login.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -42,14 +41,16 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { SignUpComponent } from './views/auth/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './views/auth/forgot-password/forgot-password.component';
-import { HomeComponent } from './views/home/home/home.component';
 import { MusicService } from './services/music.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AboutComponent } from './views/home/about/about.component';
 import { MusicComponent } from './views/home/music/music.component';
-import { SongLinkComponent } from './views/home/song-link/song-link.component';
+import { HomeComponent } from './views/home/home.component';
+import { ContactComponent } from './views/home/contact/contact.component';
+import { AlbumSingleComponent } from './views/home/music/album-single/album-single.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './views/auth/register/register.component';
 
 @NgModule({
   imports: [
@@ -68,18 +69,20 @@ import { SongLinkComponent } from './views/home/song-link/song-link.component';
     IconModule,
     IconSetModule.forRoot(),
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     LoginComponent,
-    RegisterComponent,
-    SignUpComponent,
-    ForgotPasswordComponent,
     HomeComponent,
+    AboutComponent,
     MusicComponent,
-    SongLinkComponent
+    ContactComponent,
+    AlbumSingleComponent,
+    RegisterComponent
   ],
   providers: [
     {

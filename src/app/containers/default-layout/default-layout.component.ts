@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { GeneralService } from 'app/services/general.service';
 import { navItems } from '../../_nav';
 
 @Component({
@@ -9,7 +10,7 @@ import { navItems } from '../../_nav';
 export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems = navItems;
-
+  constructor(public general: GeneralService) {}
   toggleMinimize(e) {
     this.sidebarMinimized = e;
   }

@@ -14,6 +14,9 @@ export class MusicService {
     addAlbum(album: any): Promise<any> {
       return this.http.post<any>(this.baseUrl + '/add-album', album).toPromise();
     }
+    getAlbum(id: string): Promise<any> {
+      return this.http.get<any>(this.baseUrl + '/get-album/' + id).toPromise();
+    }
     getAlbums(): Promise<any[]> {
       return this.http.get<any[]>(this.baseUrl + '/get-albums').toPromise();
     }
@@ -31,9 +34,6 @@ export class MusicService {
     }
     getDSPS(): Promise<any[]> {
       return this.http.get<any[]>(this.baseUrl + '/get-dsps').toPromise();
-    }
-    editDSP(dsp: any): Promise<any> {
-      return this.http.put<any>(this.baseUrl + '/edit-dsp', dsp).toPromise();
     }
     deleteDSP(id: string): Promise<any> {
       return this.http.delete<any>(this.baseUrl + '/delete-dsp/' + id).toPromise();
@@ -61,6 +61,9 @@ export class MusicService {
     }
     getLinks(id: string): Promise<any[]> {
       return this.http.get<any[]>(this.baseUrl + '/get-links/' + id).toPromise();
+    }
+    deleteLink(id: string): Promise<any> {
+      return this.http.delete<any>(this.baseUrl + '/delete-link/' + id).toPromise();
     }
   /*Links*/
 

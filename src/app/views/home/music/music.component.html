@@ -1,4 +1,4 @@
-<div id="profile">
+<!--<div id="profile">
   <img id="userPhoto" src="../../../../assets/img/profile.png" alt="Profile picture of Luã Braga">
   <div id="userName">
     <h1>Luã Braga</h1>
@@ -15,6 +15,20 @@
   <a class="link" href="https://guilhermesoares.tech" target="_blank"><i class="fa fa-globe"></i> Meu site</a>
   <a class="link" href="https://github.com/guiscota" target="_blank"><i class="fa fa-github"></i> Github</a>
   <a class="link" href="https://looptech.com.br" target="_blank"><i class="fa fa-globe"></i> Loop Tech</a>
+</div>
+<div class="footer">
+  <a *ngFor="let social of socials" href="{{social.handle}}" target="_blank" aria-hidden="true"><i class="{{social.icon}} circulo"></i></a>
+</div>
+-->
+
+
+<div id="profile">
+  <div id="userName">
+    <h1>Albums</h1>
+  </div>
+</div>
+<div id="links">
+  <a *ngFor="let album of albums" href="/" onclick="return false;" class="link" (click)="gService.navigate('home/music', album._id)"><i class="fa fa-music"></i> {{ album.title }}</a>
 </div>
 <div class="footer">
   <a *ngFor="let social of socials" href="{{social.handle}}" target="_blank" aria-hidden="true"><i class="{{social.icon}} circulo"></i></a>

@@ -4,20 +4,20 @@ import { ChartsModule } from 'ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
-import { SongsComponent } from './songs.component';
-import { SongsRoutingModule } from './songs-routing.module';
 import { CommonModule } from '@angular/common';
+import { DspsComponent } from './dsps.component';
+import { DspsRoutingModule } from './dsps-routing.module';
 
 @NgModule({
   imports: [
     FormsModule,
-    SongsRoutingModule,
+    DspsRoutingModule,
     CommonModule,
     ChartsModule,
     BsDropdownModule,
     ReactiveFormsModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ SongsComponent ]
+  declarations: [ DspsComponent ]
 })
-export class SongsModule { }
+export class DspsModule { }

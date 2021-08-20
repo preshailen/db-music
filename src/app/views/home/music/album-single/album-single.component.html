@@ -1,0 +1,12 @@
+<div id="profile">
+  <div id="userName">
+    <h1>{{ title }}</h1>
+  </div>
+</div>
+<img id="userPhoto" [src]="cover" alt="Album Art">
+<div id="links">
+  <a *ngFor="let song of links" href="{{ song.url }}" target="_blank" class="link"><i class="{{ getIcon(song.dsp) }}"></i> {{ getAction(song.dsp) }} on {{ getService(song.dsp) }}</a>
+</div>
+<div class="footer">
+  <a *ngFor="let social of socials" href="{{ social.handle }}" target="_blank" aria-hidden="true"><i class="{{ social.icon }} circulo"></i></a>
+</div>
