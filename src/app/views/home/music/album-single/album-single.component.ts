@@ -23,7 +23,6 @@ export class AlbumSingleComponent implements OnInit {
       this.links = data.data[1];
       this.dsps = data.data[2];
       this.socials = data.data[3];
-      console.log(this.socials)
     });
   }
   getIcon(id: string): string {
