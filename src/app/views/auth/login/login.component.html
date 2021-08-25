@@ -21,8 +21,10 @@
                     <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password" autocomplete="current-password" required>
                   </div>
                   <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                       <button type="button" class="btn btn-danger px-4" (click)="gService.navigate('home/music', null)"><i class="icon-action-undo"></i> Back to Music</button>
+                    </div>
+                    <div class="col-6">
                       <button type="button" class="btn btn-primary px-4" (click)="login()"><i class="icon-login"></i> Login</button>
                     </div>
                   </div>
